@@ -1,0 +1,189 @@
+esphome:
+  name: remora2
+  friendly_name: remora2
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxxx"
+
+  
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+#  ap:
+#    ssid: "Esphome-Remora"
+#    password: "xxxx"
+
+#  manual_ip:
+#    static_ip: 192.168.0.238
+#    gateway: 192.168.0.254
+#    subnet: 255.255.255.0
+
+# captive_portal:
+
+# For LAN
+#ethernet:
+#  type: LAN8720
+#  mdc_pin: GPIO23
+#  mdio_pin: GPIO18
+#  clk_mode: GPIO0_IN
+#  power_pin: GPIO17
+#  phy_addr: 1
+#
+#  manual_ip:
+#    static_ip: 192.168.0.238
+#    gateway: 192.168.0.254
+#    subnet: 255.255.255.0
+
+ota:
+  platform: esphome
+
+
+uart:
+  - id: uart_1
+    baud_rate: 9600
+    rx_pin: GPIO13
+    data_bits: 7
+    parity: EVEN
+
+teleinfo:
+  - id: linky
+    uart_id: uart_1
+    update_interval: 10s
+
+
+i2c:
+  sda: 32
+  scl: 4
+
+mcp23017:
+  - id: 'mcp23017_hub'
+    address: 0x20
+
+packages:
+  fp1: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 1
+      a_pin: 8
+      b_pin: 7
+
+  fp2: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 2
+      a_pin: 9
+      b_pin: 6
+
+  fp3: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 3
+      a_pin: 10
+      b_pin: 5
+
+  fp4: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 4
+      a_pin: 11
+      b_pin: 4
+
+  fp5: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 5
+      a_pin: 12
+      b_pin: 3
+
+  fp6: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 6
+      a_pin: 13
+      b_pin: 2
+
+  fp7: !include
+    file: common/fil-pilote.yaml
+    vars:
+      fp_num: 7
+      a_pin: 14
+      b_pin: 1
+
+switch:
+  #Relay
+  - platform: gpio
+    name: "Relai"
+    pin:
+      mcp23xxx: mcp23017_hub
+      # Use pin A0
+      number: 0
+      mode:
+        output: true
+  #Relay LED
+  - platform: gpio
+    name: "LED relai"
+    pin:
+      mcp23xxx: mcp23017_hub
+      # Use pin B7
+      number: 15
+      mode:
+        output: true
+      inverted: true
+
+binary_sensor:
+  - platform: gpio
+    name: "Bouton"
+    pin:
+      number: 16
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+
+
+sensor:
+  - platform: teleinfo
+    teleinfo_id: linky
+    tag_name: "SINSTS"
+    name: sinsts
+    unit_of_measurement: "VA"
+    icon: mdi:flash
+
+  - platform: teleinfo
+    teleinfo_id: linky
+    tag_name: "EASD01"
+    name: conso_hc
+    unit_of_measurement: "Wh"
+    icon: mdi:flash
+
+  - platform: teleinfo
+    teleinfo_id: linky
+    tag_name: "EASD02"
+    name: conso_hp
+    unit_of_measurement: "Wh"
+    icon: mdi:flash
+    #bug in teleinfo checksum for EASD02, we don't allow to send 0
+    #https://github.com/esphome/issues/issues/4891#issuecomment-1902267482
+    device_class: "energy"
+    state_class: "total_increasing"
+    filters:
+     - lambda: |-
+         float MAX_DIFFERENCE = 10000.0;
+         static float last_value = NAN;
+         if (isnan(last_value) || std::abs(x - last_value) < MAX_DIFFERENCE)
+           return last_value = x;
+         else
+           return {};

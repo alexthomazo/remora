@@ -1,0 +1,60 @@
+switch:
+  #FP A (lower alternance)
+  - platform: gpio
+    id: fp${fp_num}a
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: ${a_pin}
+      mode:
+        output: true
+      inverted: true
+
+  #FP B (upper alternance)
+  - platform: gpio
+    id: fp${fp_num}b
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: ${b_pin}
+      mode:
+        output: true
+      inverted: true
+
+
+select:
+  - platform: template
+    id: fil_pilote_${fp_num}
+    name: "Fil pilote ${fp_num}"
+    icon: "mdi:thermometer"
+    optimistic: true
+    initial_option: "hors_gel"
+    options: 
+      - "off"
+      - "hors_gel"
+      - "eco"
+      - "confort"
+    on_value: 
+      then:
+        - if: 
+            condition: 
+              lambda: "return id(fil_pilote_${fp_num}).state ==\"off\";"
+            then: 
+              - switch.turn_off: fp${fp_num}a
+              - switch.turn_on: fp${fp_num}b
+        - if: 
+            condition: 
+              lambda: "return id(fil_pilote_${fp_num}).state ==\"hors_gel\";"
+            then: 
+              - switch.turn_on: fp${fp_num}a
+              - switch.turn_off: fp${fp_num}b
+        - if: 
+            condition: 
+              lambda: "return id(fil_pilote_${fp_num}).state ==\"eco\";"
+            then: 
+              - switch.turn_on: fp${fp_num}a
+              - switch.turn_on: fp${fp_num}b
+        - if: 
+            condition: 
+              lambda: "return id(fil_pilote_${fp_num}).state ==\"confort\";"
+            then: 
+              - switch.turn_off: fp${fp_num}a
+              - switch.turn_off: fp${fp_num}b
