@@ -10235,7 +10235,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 106.045 0)
 			(effects
 				(font
@@ -10798,7 +10798,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188440"
+		(property "LCSC#" "C5188463"
 			(at 176.53 28.575 0)
 			(effects
 				(font
@@ -11533,7 +11533,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 163.195 0)
 			(effects
 				(font
@@ -11663,7 +11663,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188440"
+		(property "LCSC#" "C5188463"
 			(at 176.53 40.005 0)
 			(effects
 				(font
@@ -12312,7 +12312,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 37.465 30.48 0)
 			(effects
 				(font
@@ -13089,7 +13089,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 37.465 0)
 			(effects
 				(font
@@ -13486,7 +13486,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188440"
+		(property "LCSC#" "C5188463"
 			(at 176.53 62.865 0)
 			(effects
 				(font
@@ -14150,7 +14150,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188440"
+		(property "LCSC#" "C5188463"
 			(at 27.94 185.42 0)
 			(effects
 				(font
@@ -14301,7 +14301,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 140.335 0)
 			(effects
 				(font
@@ -14681,7 +14681,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188440"
+		(property "LCSC#" "C5188463"
 			(at 176.53 51.435 0)
 			(effects
 				(font
@@ -15372,7 +15372,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 71.755 0)
 			(effects
 				(font
@@ -15704,7 +15704,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 83.185 0)
 			(effects
 				(font
@@ -15807,7 +15807,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 60.325 0)
 			(effects
 				(font
@@ -16607,7 +16607,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 174.625 0)
 			(effects
 				(font
@@ -17207,7 +17207,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 186.055 0)
 			(effects
 				(font
@@ -17555,7 +17555,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188441"
+		(property "LCSC#" "C5188464"
 			(at 31.115 69.85 0)
 			(effects
 				(font
@@ -17860,7 +17860,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 151.765 0)
 			(effects
 				(font
@@ -18030,7 +18030,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 117.475 0)
 			(effects
 				(font
@@ -18134,7 +18134,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 48.895 0)
 			(effects
 				(font
@@ -18390,7 +18390,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 94.615 0)
 			(effects
 				(font
@@ -18606,7 +18606,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5188440"
+		(property "LCSC#" "C5188463"
 			(at 225.425 130.175 0)
 			(effects
 				(font
@@ -18664,7 +18664,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "remora_lib:D_SOD-123FL"
 			(at 146.05 128.905 0)
 			(effects
 				(font
